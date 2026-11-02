@@ -69,6 +69,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             attribute: 'class',
             enableSystem: true,
             disableTransitionOnChange: false,
+            scriptProps: { type: 'application/json' },
           }}
         >
           {children}
