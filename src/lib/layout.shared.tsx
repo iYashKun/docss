@@ -1,17 +1,15 @@
 import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
+import docsConfig from '../../docs.config';
 
 export function baseOptions(): BaseLayoutProps {
-  return {
+  const options: BaseLayoutProps = {
     nav: {
-      title: 'eth.zig',
+      title: docsConfig.name,
     },
-    githubUrl: 'https://github.com/StrobeLabs/eth.zig',
-    links: [
-      {
-        text: 'Twitter',
-        url: 'https://x.com/StrobeLabs',
-        external: true,
-      },
-    ],
+    links: docsConfig.links,
   };
+
+  if (docsConfig.githubUrl) options.githubUrl = docsConfig.githubUrl;
+
+  return options;
 }
