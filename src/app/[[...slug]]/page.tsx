@@ -1,14 +1,8 @@
 import { source } from '@/lib/source';
-import {
-  DocsBody,
-  DocsDescription,
-  DocsPage,
-  DocsTitle,
-} from 'fumadocs-ui/page';
-import { notFound } from 'next/navigation';
-import { getMDXComponents } from '@/mdx-components';
-import type { Metadata } from 'next';
 import { createRelativeLink } from 'fumadocs-ui/mdx';
+import { DocsPageContent, getDocsMDXComponents } from 'docss-theme';
+import { notFound } from 'next/navigation';
+import type { Metadata } from 'next';
 
 export default async function Page(props: { params: Promise<{ slug?: string[] }> }) {
   const params = await props.params;
@@ -18,21 +12,18 @@ export default async function Page(props: { params: Promise<{ slug?: string[] }>
   const MDX = page.data.body;
 
   return (
-    <DocsPage
+    <DocsPageContent
+      title={page.data.title}
+      description={page.data.description}
       toc={page.data.toc}
       full={page.data.full}
     >
-      <DocsTitle>{page.data.title}</DocsTitle>
-      {page.data.description && <DocsDescription>{page.data.description}</DocsDescription>}
-      <div className="border-b pb-1 mb-1" />
-      <DocsBody>
-        <MDX
-          components={getMDXComponents({
-            a: createRelativeLink(source, page),
-          })}
-        />
-      </DocsBody>
-    </DocsPage>
+      <MDX
+        components={getDocsMDXComponents({
+          a: createRelativeLink(source, page),
+        })}
+      />
+    </DocsPageContent>
   );
 }
 

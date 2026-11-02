@@ -1,0 +1,29 @@
+{
+  "name": "create-docss",
+  "version": "0.1.0",
+  "description": "Create a deployable documentation site powered by docss-theme.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iYashKun/docss.git",
+    "directory": "packages/create-docss"
+  },
+  "engines": {
+    "node": ">=20.9"
+  },
+  "type": "module",
+  "bin": {
+    "create-docss": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "template"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "prepack": "npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "typescript": "^7.0.2"
+  }
+}

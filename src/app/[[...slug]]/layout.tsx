@@ -1,11 +1,7 @@
-import { DocsLayout } from 'fumadocs-ui/layouts/docs';
-import { baseOptions } from '@/lib/layout.shared';
+import { DocsLayoutShell } from 'docss-theme';
 import { source } from '@/lib/source';
+import docsConfig from '../../../docs.config';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  return (
-    <DocsLayout tree={source.pageTree} {...baseOptions()} themeSwitch={{ mode: 'light-dark-system' }}>
-      {children}
-    </DocsLayout>
-  );
+  return <DocsLayoutShell tree={source.pageTree} config={docsConfig}>{children}</DocsLayoutShell>;
 }

@@ -11,6 +11,7 @@ const eslintConfig = [
       'out/**',
       'build/**',
       '.source/**',
+      'packages/create-docss/template/**',
       'next-env.d.ts',
     ],
   },

@@ -1,11 +1,6 @@
-import { createMDX } from 'fumadocs-mdx/next';
-import type { NextConfig } from 'next';
+import { withDocsTheme } from 'docss-theme/next';
 
-const withMDX = createMDX();
-
-const config: NextConfig = {
+export default withDocsTheme({
   reactStrictMode: true,
   devIndicators: false,
-};
-
-export default withMDX(config);
+});

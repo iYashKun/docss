@@ -2,11 +2,17 @@
   "name": "docs",
   "version": "0.0.0",
   "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "build": "next build",
+    "build:packages": "npm run build --workspace=docss-theme && npm run build --workspace=create-docss",
     "dev": "next dev --turbo",
     "start": "next start",
-    "postinstall": "fumadocs-mdx",
+    "postinstall": "npm run build --workspace=docss-theme && fumadocs-mdx",
+    "prebuild": "npm run build --workspace=docss-theme",
+    "predev": "npm run build --workspace=docss-theme",
     "lint": "eslint"
   },
   "postcss": {
@@ -15,6 +21,7 @@
     }
   },
   "dependencies": {
+    "docss-theme": "0.1.0",
     "fumadocs-core": "16.17.9",
     "fumadocs-mdx": "15.4.10",
     "fumadocs-ui": "16.17.9",
@@ -30,12 +37,12 @@
     "@types/node": "26.6.6",
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",
-    "eslint": "^10",
-    "eslint-config-next": "16.2.9",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "16.4.3",
     "jiti": "^2.7.0",
     "postcss": "^8.5.15",
     "tailwindcss": "^4.1.14",
-    "typescript": "^7.0.2"
+    "typescript": "^6.0.3"
   },
   "pnpm": {
     "overrides": {
