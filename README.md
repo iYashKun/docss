@@ -1,4 +1,4 @@
-# Your Docs
+# Docs
 
 A customizable documentation site built with Next.js, Fumadocs, and MDX. Edit one TypeScript config, add pages under `content/docs/`, and deploy the site with your hosting provider.
 
